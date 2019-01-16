@@ -11,9 +11,22 @@
 </head>
 <body>
 	<main>
+		<nav>
+			<ul class="main-nav">
+				<li class="nav-item">HOME</li>
+				<li class="nav-item">USERS</li>
+				<li class="nav-item">PORTFOLIO</li>
+				<li class="nav-item">CONTACT</li>
+			</ul>
+		</nav>
+		<article>
+			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, fuga repudiandae optio, facilis harum quasi? Deleniti, accusamus, temporibus maiores deserunt dolor nostrum, ipsa quidem adipisci a unde magni esse eius?</div>
+			<div>Fugit eveniet vero et placeat perferendis libero sequi laboriosam ipsum saepe, optio esse aliquam cupiditate aliquid veniam quod iste, eligendi ducimus laudantium hic. Vel tempore at architecto non in voluptates.</div>
+		</article>
+		<h3>your name is...?</h3>
 		<div id="app">
 
-			<user :name="name"></user>
+			<user :name="name" :role="role" :message="message" @passfunccallup="logMainMessage"></user>
 		</div>
 	</main>
 
@@ -22,9 +35,17 @@
 	<!--TEMPLATES-->
 	<template id="activeuser">
 		<div>
+		<!-- <div>
 			<p>hello</p>
-			<p>{{name}}</p>
+			<p>{{name}}...{{role}}</p>
+		</div> -->
+		<button v-on:click="runParentFunc">click me</button>
+
+		<div>
+			<input v-model="message" placeholder="enter your name...">
+			<h2>{{ message }}</h2>
 		</div>
+	</div>
 	</template>
 
 	<script src="js/main.js"></script>
