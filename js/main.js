@@ -1,8 +1,21 @@
 
-// let ActiveUserComponent = {
-// 		props: ['name'],
-//         template: "activeuser"
-//     }
+const homePage = {
+	template: "<h1>Welcome to the home page</h1>"
+}
+
+const usersPage = {
+	template: "<h1>Welcome to the users page</h1>"
+}
+
+const routes = [
+	{path: '/', name: 'home', component: homePage},
+	{path: '/users', name: 'users', component: usersPage}
+]
+
+const router = new VueRouter({
+	routes
+});
+
 const liveuser = {
 	props: ['name', 'role', 'message'],
 	template: "#activeuser",
@@ -33,6 +46,9 @@ const vm = new Vue({
 		}
 	},
 	components : {
-            user : liveuser
-        }
+            user : liveuser,
+            'homePage' : homePage,
+            'usersPage' : usersPage
+        },
+    router: router
 });

@@ -7,11 +7,12 @@
 	<link href="styles/main.css" rel="stylesheet" type="text/css">
 	<title>Component practice</title>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.22/dist/vue.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.2/vue-router.min.js"></script>
 
 </head>
 <body>
 	<main>
-		<nav>
+		<!-- <nav>
 			<ul class="main-nav">
 				<li class="nav-item">HOME</li>
 				<li class="nav-item">USERS</li>
@@ -23,22 +24,22 @@
 			<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, fuga repudiandae optio, facilis harum quasi? Deleniti, accusamus, temporibus maiores deserunt dolor nostrum, ipsa quidem adipisci a unde magni esse eius?</div>
 			<div>Fugit eveniet vero et placeat perferendis libero sequi laboriosam ipsum saepe, optio esse aliquam cupiditate aliquid veniam quod iste, eligendi ducimus laudantium hic. Vel tempore at architecto non in voluptates.</div>
 		</article>
-		<h3>your name is...?</h3>
+		<h3>your name is...?</h3> -->
 		<div id="app">
-
-			<user :name="name" :role="role" :message="message" @passfunccallup="logMainMessage"></user>
+			<router-view></router-view>
+			<!-- <user :name="name" :role="role" :message="message" @passfunccallup="logMainMessage"></user> -->
 		</div>
 	</main>
 
 	
 
 	<!--TEMPLATES-->
-	<template id="activeuser">
+	<!-- <template id="activeuser">
 		<div>
-		<!-- <div>
+		<div>
 			<p>hello</p>
 			<p>{{name}}...{{role}}</p>
-		</div> -->
+		</div>
 		<button v-on:click="runParentFunc">click me</button>
 
 		<div>
@@ -46,7 +47,7 @@
 			<h2>{{ message }}</h2>
 		</div>
 	</div>
-	</template>
+	</template> -->
 
 	<script src="js/main.js"></script>
 
