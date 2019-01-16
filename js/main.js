@@ -4,7 +4,7 @@
 //         template: "activeuser"
 //     }
 const liveuser = {
-	props: ['name'],
+	props: ['name', 'role', 'message'],
 	template: "#activeuser",
 	name: 'user',
 }
@@ -12,7 +12,9 @@ const liveuser = {
 const vm = new Vue({
 	el: '#app',
 	data:{
-		name: "mariah"
+		name: "mariah",
+		role: "developer",
+		message: ""
 	},
 	methods:{
 		logParent(name){
