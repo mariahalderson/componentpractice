@@ -26,7 +26,7 @@
 		<h3>your name is...?</h3>
 		<div id="app">
 
-			<user :name="name" :role="role" :message="message"></user>
+			<user :name="name" :role="role" :message="message" @passfunccallup="logMainMessage"></user>
 		</div>
 	</main>
 
@@ -39,6 +39,7 @@
 			<p>hello</p>
 			<p>{{name}}...{{role}}</p>
 		</div> -->
+		<button v-on:click="runParentFunc">click me</button>
 
 		<div>
 			<input v-model="message" placeholder="enter your name...">

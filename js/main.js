@@ -7,6 +7,14 @@ const liveuser = {
 	props: ['name', 'role', 'message'],
 	template: "#activeuser",
 	name: 'user',
+	created: function(){
+		console.log("created");
+	},
+	methods:{
+		runParentFunc(){
+			this.$emit('passfunccallup', 'wow you did it');
+		}
+	}
 }
 
 const vm = new Vue({
@@ -19,7 +27,9 @@ const vm = new Vue({
 	methods:{
 		logParent(name){
 			console.log(name);
-			this.name = this.name.split().pop();
+		},
+		logMainMessage(message){
+			console.log(message);
 		}
 	},
 	components : {
