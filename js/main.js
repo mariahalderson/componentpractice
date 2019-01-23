@@ -7,9 +7,19 @@ const usersPage = {
 	template: "<h1>Welcome to the users page</h1>"
 }
 
+const contactPage = {
+	template: "<h1>Welcome to the contact page</h1>"
+}
+
+const errorPage = {
+	template: "<h1>whoops error</h1>"
+}
+
 const routes = [
 	{path: '/', name: 'home', component: homePage},
-	{path: '/users', name: 'users', component: usersPage}
+	{path: '/users', name: 'users', component: usersPage},
+	{path: '/contact', name: 'contact', component: contactPage},
+	{path: '*', name: 'error', component: errorPage}
 ]
 
 const router = new VueRouter({
