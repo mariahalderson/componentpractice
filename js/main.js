@@ -1,51 +1,24 @@
-
-const homePage = {
-	template: "<h1>Welcome to the home page</h1>"
-}
-
-const usersPage = {
-	template: "<h1>Welcome to the users page</h1>"
-}
-
-const contactPage = {
-	template: "<h1>Welcome to the contact page</h1>"
-}
-
-const errorPage = {
-	template: "<h1>whoops error</h1>"
-}
+import Login from './components/Login.js';
+import Users from './components/Users.js';
 
 const routes = [
-	{path: '/', name: 'home', component: homePage},
-	{path: '/users', name: 'users', component: usersPage},
-	{path: '/contact', name: 'contact', component: contactPage},
-	{path: '*', name: 'error', component: errorPage}
+	{path: '/', redirect: {name: 'login'} },
+	{path: '/login', name: 'login', component: Login},
+	{path: '/users', name: 'users', component: Users},
 ]
 
 const router = new VueRouter({
 	routes
 });
 
-const liveuser = {
-	props: ['name', 'role', 'message'],
-	template: "#activeuser",
-	name: 'user',
-	created: function(){
-		console.log("created");
-	},
-	methods:{
-		runParentFunc(){
-			this.$emit('passfunccallup', 'wow you did it');
-		}
-	}
-}
 
 const vm = new Vue({
-	el: '#app',
 	data:{
 		name: "mariah",
 		role: "developer",
-		message: ""
+		message: "",
+		authenticated: false,
+		mockAccount: {username:'user1', password:'password'}
 	},
 	methods:{
 		logParent(name){
@@ -53,12 +26,24 @@ const vm = new Vue({
 		},
 		logMainMessage(message){
 			console.log(message);
+		},
+		setAuth(status){
+			this.authenticated=status;
+		},
+		logout(){
+			this.authenticated=false;
 		}
 	},
-	components : {
-            user : liveuser,
-            'homePage' : homePage,
-            'usersPage' : usersPage
-        },
     router: router
+}).$mount("#app");
+
+
+router.beforeEach((to, from, next)=>{
+	console.log("router guard fired!");
+
+	if(vm.authenticated == false){
+		next("/login");
+	}else{
+		next();
+	}
 });
